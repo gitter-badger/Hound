@@ -10,9 +10,9 @@ feature "Admin authorization" do
       and_return("admin_user,other_admin_user")
 
     sign_in_as(user, token)
-    visit "/admin"
+    visit admin_users_path
 
-    expect(page).to have_content "Administrate"
+    expect(page).to have_admin_users_header
   end
 
   scenario "non-admin cannot access dashboard" do
@@ -24,8 +24,12 @@ feature "Admin authorization" do
       and_return("admin_user,other_admin_user")
 
     sign_in_as(user, token)
-    visit "/admin"
+    visit admin_users_path
 
-    expect(page).not_to have_content "Administrate"
+    expect(page).not_to have_admin_users_header
+  end
+
+  def have_admin_users_header
+    have_selector("h1", text: "Users")
   end
 end
