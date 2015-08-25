@@ -26,24 +26,26 @@ class RepoDashboard < Administrate::BaseDashboard
     :subscription,
   ]
 
+  ATTRIBUTE_TYPES = {
+    id: Field::String,
+    github_id: Field::String,
+    active: Field::String,
+    hook_id: Field::String,
+    full_github_name: Field::String,
+    created_at: Field::String,
+    updated_at: Field::String,
+    private: Field::String,
+    in_organization: Field::String,
+    owner_id: Field::String,
+    builds: Field::HasMany,
+    memberships: Field::HasMany,
+    owner: Field::BelongsTo,
+    subscription: Field::HasOne,
+    users: Field::HasMany,
+  }
+
   def attribute_types
-    {
-      id: Field::String,
-      github_id: Field::String,
-      active: Field::String,
-      hook_id: Field::String,
-      full_github_name: Field::String,
-      created_at: Field::String,
-      updated_at: Field::String,
-      private: Field::String,
-      in_organization: Field::String,
-      owner_id: Field::String,
-      builds: Field::HasMany,
-      memberships: Field::HasMany,
-      owner: Field::BelongsTo,
-      subscription: Field::HasOne,
-      users: Field::HasMany,
-    }
+    ATTRIBUTE_TYPES
   end
 
   def table_attributes

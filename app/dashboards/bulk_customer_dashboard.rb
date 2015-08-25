@@ -10,9 +10,11 @@ class BulkCustomerDashboard < Administrate::BaseDashboard
     :updated_at,
   ]
 
+  ATTRIBUTE_TYPES = {
+  }
+
   def attribute_types
-    {
-    }
+    ATTRIBUTE_TYPES
   end
 
   def table_attributes

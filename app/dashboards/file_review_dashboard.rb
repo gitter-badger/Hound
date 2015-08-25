@@ -18,17 +18,19 @@ class FileReviewDashboard < Administrate::BaseDashboard
     :updated_at,
   ]
 
+  ATTRIBUTE_TYPES = {
+    id: Field::String,
+    build_id: Field::String,
+    completed_at: Field::String,
+    created_at: Field::String,
+    updated_at: Field::String,
+    filename: Field::String,
+    build: Field::BelongsTo,
+    violations: Field::HasMany,
+  }
+
   def attribute_types
-    {
-      id: Field::String,
-      build_id: Field::String,
-      completed_at: Field::String,
-      created_at: Field::String,
-      updated_at: Field::String,
-      filename: Field::String,
-      build: Field::BelongsTo,
-      violations: Field::HasMany,
-    }
+    ATTRIBUTE_TYPES
   end
 
   def table_attributes

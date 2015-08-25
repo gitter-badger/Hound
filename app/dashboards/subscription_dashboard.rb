@@ -20,19 +20,21 @@ class SubscriptionDashboard < Administrate::BaseDashboard
     :updated_at,
   ]
 
+  ATTRIBUTE_TYPES = {
+    id: Field::String,
+    created_at: Field::String,
+    updated_at: Field::String,
+    user_id: Field::String,
+    repo_id: Field::String,
+    stripe_subscription_id: Field::String,
+    deleted_at: Field::String,
+    price: Field::String,
+    repo: Field::BelongsTo,
+    user: Field::BelongsTo,
+  }
+
   def attribute_types
-    {
-      id: Field::String,
-      created_at: Field::String,
-      updated_at: Field::String,
-      user_id: Field::String,
-      repo_id: Field::String,
-      stripe_subscription_id: Field::String,
-      deleted_at: Field::String,
-      price: Field::String,
-      repo: Field::BelongsTo,
-      user: Field::BelongsTo,
-    }
+    ATTRIBUTE_TYPES
   end
 
   def table_attributes

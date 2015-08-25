@@ -22,21 +22,23 @@ class BuildDashboard < Administrate::BaseDashboard
     :updated_at,
   ]
 
+  ATTRIBUTE_TYPES = {
+    id: Field::String,
+    violations_archive: Field::String,
+    repo_id: Field::String,
+    created_at: Field::String,
+    updated_at: Field::String,
+    uuid: Field::String,
+    pull_request_number: Field::String,
+    commit_sha: Field::String,
+    repo: Field::BelongsTo,
+    user: Field::BelongsTo,
+    file_reviews: Field::HasMany,
+    violations: Field::HasMany,
+  }
+
   def attribute_types
-    {
-      id: Field::String,
-      violations_archive: Field::String,
-      repo_id: Field::String,
-      created_at: Field::String,
-      updated_at: Field::String,
-      uuid: Field::String,
-      pull_request_number: Field::String,
-      commit_sha: Field::String,
-      repo: Field::BelongsTo,
-      user: Field::BelongsTo,
-      file_reviews: Field::HasMany,
-      violations: Field::HasMany,
-    }
+    ATTRIBUTE_TYPES
   end
 
   def table_attributes

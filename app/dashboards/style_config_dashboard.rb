@@ -16,15 +16,17 @@ class StyleConfigDashboard < Administrate::BaseDashboard
     :updated_at,
   ]
 
+  ATTRIBUTE_TYPES = {
+    id: Field::String,
+    enabled: Field::String,
+    language: Field::String,
+    rules: Field::String,
+    owner_id: Field::String,
+    owner: Field::BelongsTo,
+  }
+
   def attribute_types
-    {
-      id: Field::String,
-      enabled: Field::String,
-      language: Field::String,
-      rules: Field::String,
-      owner_id: Field::String,
-      owner: Field::BelongsTo,
-    }
+    ATTRIBUTE_TYPES
   end
 
   def table_attributes

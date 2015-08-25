@@ -19,18 +19,20 @@ class ViolationDashboard < Administrate::BaseDashboard
     :updated_at,
   ]
 
+  ATTRIBUTE_TYPES = {
+    id: Field::String,
+    created_at: Field::String,
+    updated_at: Field::String,
+    patch_position: Field::String,
+    line_number: Field::String,
+    messages: Field::String,
+    pending: Field::String,
+    file_review_id: Field::String,
+    file_review: Field::BelongsTo,
+  }
+
   def attribute_types
-    {
-      id: Field::String,
-      created_at: Field::String,
-      updated_at: Field::String,
-      patch_position: Field::String,
-      line_number: Field::String,
-      messages: Field::String,
-      pending: Field::String,
-      file_review_id: Field::String,
-      file_review: Field::BelongsTo,
-    }
+    ATTRIBUTE_TYPES
   end
 
   def table_attributes

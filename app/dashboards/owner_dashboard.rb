@@ -18,17 +18,19 @@ class OwnerDashboard < Administrate::BaseDashboard
     :updated_at,
   ]
 
+  ATTRIBUTE_TYPES = {
+    id: Field::String,
+    created_at: Field::String,
+    updated_at: Field::String,
+    github_id: Field::String,
+    name: Field::String,
+    organization: Field::String,
+    repos: Field::HasMany,
+    style_configs: Field::HasMany,
+  }
+
   def attribute_types
-    {
-      id: Field::String,
-      created_at: Field::String,
-      updated_at: Field::String,
-      github_id: Field::String,
-      name: Field::String,
-      organization: Field::String,
-      repos: Field::HasMany,
-      style_configs: Field::HasMany,
-    }
+    ATTRIBUTE_TYPES
   end
 
   def table_attributes
