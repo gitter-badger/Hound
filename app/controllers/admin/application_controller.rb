@@ -5,7 +5,7 @@
 # If you want to add pagination or other controller-level concerns,
 # you're free to overwrite the RESTful controller actions.
 class Admin::ApplicationController < Administrate::ApplicationController
-  before_filter :authenticate_admin
+  before_action :authenticate_admin
 
   def index
     super
@@ -21,7 +21,7 @@ class Admin::ApplicationController < Administrate::ApplicationController
 
   def authenticate_admin
     unless current_user &&
-      admin_github_handles.include?(current_user.github_username)
+        admin_github_handles.include?(current_user.github_username)
       redirect_to :root
     end
   end
