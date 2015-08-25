@@ -1,7 +1,6 @@
 require "administrate/base_dashboard"
 
 class BuildDashboard < Administrate::BaseDashboard
-
   # This method returns a hash
   # that describes the type of each of the model's fields.
   #
