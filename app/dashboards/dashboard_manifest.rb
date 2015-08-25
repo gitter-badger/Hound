@@ -1,17 +1,19 @@
 class DashboardManifest
+  DASHBOARDS = [
+    :builds,
+    :bulk_customers,
+    :file_reviews,
+    :memberships,
+    :owners,
+    :repos,
+    :style_configs,
+    :subscriptions,
+    :users,
+    :violations,
+  ]
+
   def dashboards
-    [
-      :builds,
-      :bulk_customers,
-      :file_reviews,
-      :memberships,
-      :owners,
-      :repos,
-      :style_configs,
-      :subscriptions,
-      :users,
-      :violations,
-    ]
+    DASHBOARDS
   end
 
   def root_dashboard
