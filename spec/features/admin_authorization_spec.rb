@@ -10,6 +10,8 @@ feature "Admin authorization" do
     visit admin_users_path
 
     expect(page).to have_admin_users_header
+
+    ENV["ADMIN_GITHUB_HANDLES"] = nil
   end
 
   scenario "non-admin cannot access dashboard" do
@@ -21,6 +23,8 @@ feature "Admin authorization" do
     visit admin_users_path
 
     expect(page).not_to have_admin_users_header
+
+    ENV["ADMIN_GITHUB_HANDLES"] = nil
   end
 
   def have_admin_users_header
