@@ -6,7 +6,7 @@ feature "Admin authorization" do
     user = create(:user, github_username: "admin_user")
     stub_repos_requests(token)
     allow(ENV).to receive(:fetch).
-      with("ADMIN_GITHUB_HANDLES").
+      with("ADMIN_GITHUB_HANDLES", "").
       and_return("admin_user,other_admin_user")
 
     sign_in_as(user, token)
@@ -20,7 +20,7 @@ feature "Admin authorization" do
     user = create(:user, github_username: "not_admin_user")
     stub_repos_requests(token)
     allow(ENV).to receive(:fetch).
-      with("ADMIN_GITHUB_HANDLES").
+      with("ADMIN_GITHUB_HANDLES", "").
       and_return("admin_user,other_admin_user")
 
     sign_in_as(user, token)
