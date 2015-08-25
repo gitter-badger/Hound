@@ -14,4 +14,8 @@ class Violation < ActiveRecord::Base
   def messages
     self[:messages].uniq
   end
+
+  def to_s
+    "#{self.class} ##{id}"
+  end
 end

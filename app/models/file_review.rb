@@ -22,6 +22,10 @@ class FileReview < ActiveRecord::Base
     !completed?
   end
 
+  def to_s
+    "#{self.class} ##{id}"
+  end
+
   private
 
   def find_or_build_violation(line)

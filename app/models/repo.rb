@@ -71,6 +71,10 @@ class Repo < ActiveRecord::Base
       count
   end
 
+  def to_s
+    "#{self.class} ##{id}"
+  end
+
   private
 
   def organization

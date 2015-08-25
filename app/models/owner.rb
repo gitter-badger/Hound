@@ -9,4 +9,8 @@ class Owner < ActiveRecord::Base
     owner.save!
     owner
   end
+
+  def to_s
+    "#{self.class} ##{id}"
+  end
 end

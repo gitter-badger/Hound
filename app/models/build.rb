@@ -22,6 +22,10 @@ class Build < ActiveRecord::Base
     (user && user.token) || Hound::GITHUB_TOKEN
   end
 
+  def to_s
+    "#{self.class} ##{id}"
+  end
+
   private
 
   def generate_uuid
