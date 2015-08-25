@@ -14,14 +14,17 @@ class Admin::ApplicationController < Administrate::ApplicationController
   private
 
   def authenticate_admin
-    unless current_user &&
-        admin_github_handles.include?(current_user.github_username)
+    unless github_admin?
       redirect_to :root
     end
   end
 
+  def github_admin?
+    current_user && admin_github_handles.include?(current_user.github_username)
+  end
+
   def current_user
-    @current_user ||= User.where(remember_token: session[:remember_token]).first
+    @current_user ||= User.find_by(remember_token: session[:remember_token])
   end
 
   def admin_github_handles
