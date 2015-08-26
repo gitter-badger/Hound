@@ -19,6 +19,32 @@ Here are a few technical guidelines to follow:
 [issues]: https://github.com/thoughtbot/hound/issues
 [squash]: https://github.com/thoughtbot/guides/tree/master/protocol/git#write-a-feature
 
+## Basic Setup to Run Application
+
+*Designers, this section is for you, if you want to work on the app, but don't need to have Hound communicate with your local machine.*
+
+1. After cloning the repository, run the setup script
+
+    `./bin/setup`
+
+1. Log into your GitHub account and go to your
+   [application settings].
+
+1. Under the Developer applications panel - Click on "Register new
+   application" and fill in the details:
+
+    * Application Name: Hound Development
+    * Homepage URL: `http://localhost:5000`
+    * Authorization Callback URL: `http://localhost:5000`
+
+1. On the confirmation screen, copy the `Client ID` and `Client Secret` to
+   `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` in the `.env` file.
+
+1. Run `foreman start`. Foreman will start the web server and
+   the resque background job queue.
+
+[application settings]: https://github.com/settings/applications
+
 ## Configure Hound on Your Local Development Environment
 
 1. After cloning the repository, run the setup script
