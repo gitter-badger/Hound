@@ -22,7 +22,7 @@ describe GithubAuthOptions do
 
         options_as_hash = options.to_hash
 
-        expect(options_as_hash[:scope]).to eq "user:email"
+        expect(options_as_hash[:scope]).to eq "public_repo,user:email"
       end
     end
   end

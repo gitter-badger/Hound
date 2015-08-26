@@ -7,7 +7,7 @@ class GithubAuthOptions
     if @request.params["access"] == "full"
       { scope: "repo,user:email" }
     else
-      { scope: "user:email" }
+      { scope: "public_repo,user:email" }
     end
   end
 end

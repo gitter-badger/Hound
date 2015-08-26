@@ -254,7 +254,7 @@ module GithubApiHelper
     )
   end
 
-  def stub_scopes_request(token: "token", scopes: "user:email")
+  def stub_scopes_request(token: "token", scopes: "public_repo,user:email")
     stub_request(:get, "https://api.github.com/user").
       with(
         headers: {
